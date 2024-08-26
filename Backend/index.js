@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(cors({
   
-  origin:  'https://student-feedbacker-frontend.vercel.app',
+  origin:  'student-feedbacker-frontend.vercel.app',
   methods: 'GET,POST',
   credentials: true
 }));
