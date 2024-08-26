@@ -10,12 +10,12 @@ app.use(cors());
 // // app.use(express.json());
 
 
-// app.use(cors({
+app.use(cors({
   
-//   origin:  'http://localhost:5174',
-//   methods: 'GET,POST',
-//   credentials: true
-// }));
+  origin:  'https://student-feedbacker-frontend.vercel.app',
+  methods: 'GET,POST',
+  credentials: true
+}));
 
 const auth = require("./Routers/Auth")
 
