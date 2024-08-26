@@ -10,12 +10,12 @@ app.use(cors());
 // // app.use(express.json());
 
 
-app.use(cors({
+// app.use(cors({
   
-  origin:  'http://localhost:5174',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true
-}));
+//   origin:  'http://localhost:5174',
+//   methods: 'GET,POST',
+//   credentials: true
+// }));
 
 const auth = require("./Routers/Auth")
 
@@ -33,6 +33,9 @@ mongoose.connect(mongoUrl)
     console.error('Error connecting to MongoDB:', error);
   });
 
+  app.get("/", (req, res) => {
+    res.send("Server is running!");
+  });
 
   
 app.listen(3000, () => {
