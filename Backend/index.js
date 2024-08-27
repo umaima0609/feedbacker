@@ -37,6 +37,10 @@ mongoose.connect(mongoUrl)
     res.send("Server is running!");
   });
 
+
+  app.get('/test', (req, res) => {
+    res.send('Hello World');
+});
   
 app.listen(3000, () => {
     console.log(" server is running");
