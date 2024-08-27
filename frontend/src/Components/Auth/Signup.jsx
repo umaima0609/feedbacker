@@ -32,10 +32,7 @@ const Signup = () => {
     e.preventDefault();
     setloader(true)
 
-    // if (dept === "" || sem === "") {
-    //   toast.error("Please fill all fields");
-
-    // }
+   
     if (Password.length !== 8) {
       toast.error("Password  size should be 8 letters");
     }
