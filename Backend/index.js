@@ -37,11 +37,22 @@ mongoose.connect(mongoUrl)
     res.send("Server is running!");
   });
 
-
+// testing
   app.get('/test', (req, res) => {
     res.send('Hello World');
 });
+app.post('/api/v1/login', (req, res, next) => {
+  console.log('Login API hit');
+  console.log(req.body); // Check payload
   
+  // Dummy response for testing
+  res.status(200).json({ message: 'Login successful' });
+});  
+
+
+
+
+
 app.listen(3000, () => {
     console.log(" server is running");
   });
