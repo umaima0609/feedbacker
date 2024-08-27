@@ -6,8 +6,8 @@ app.use(express.json());
 const cors = require("cors")
 
 
-app.use(cors());
-// // app.use(express.json());
+
+app.use(express.json());
 
 
 app.use(cors({
@@ -41,9 +41,17 @@ mongoose.connect(mongoUrl)
   app.get('/test', (req, res) => {
     res.send('Hello World');
 });
-app.post('/api/v1/login', (req, res, next) => {
+app.post('/api/v1/Login', (req, res, next) => {
   console.log('Login API hit');
   console.log(req.body); // Check payload
+
+  const { username, password } = req.body;
+
+  // Validate required fields
+  if (!username || !password) {
+    return res.status(400).json({ success: false, message: 'Please provide both username and password' });
+  }
+  
   
   // Dummy response for testing
   res.status(200).json({ message: 'Login successful' });
@@ -53,6 +61,7 @@ app.post('/api/v1/login', (req, res, next) => {
 
 
 
-app.listen(3000, () => {
-    console.log(" server is running");
-  });
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
