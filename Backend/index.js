@@ -3,19 +3,19 @@ require('dotenv').config();
 const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
-const cors = require("cors")
+// const cors = require("cors")
 
 
 
 app.use(express.json());
 
 
-app.use(cors({
+// app.use(cors({
   
-  origin:  'https://student-feedbacker-frontend.vercel.app',
-  methods: 'GET,POST',
-  credentials: true
-}));
+//   origin:  'https://student-feedbacker-frontend.vercel.app',
+//   methods: 'GET,POST',
+//   credentials: true
+// }));
 
 const auth = require("./Routers/Auth")
 
@@ -45,13 +45,6 @@ app.post('/api/v1/Login', (req, res, next) => {
   console.log('Login API hit');
   console.log(req.body); // Check payload
 
-  const { username, password } = req.body;
-
-  // Validate required fields
-  if (!username || !password) {
-    return res.status(400).json({ success: false, message: 'Please provide both username and password' });
-  }
-  
   
   // Dummy response for testing
   res.status(200).json({ message: 'Login successful' });
