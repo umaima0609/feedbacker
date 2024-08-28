@@ -10,12 +10,13 @@ app.use(express.json());
 app.use(express.json());
 
 
-// app.use(cors({
+app.use(cors({
   
-//   origin:  'https://student-feedbacker-frontend.vercel.app',
-//   methods: 'GET,POST',
-//   credentials: true
-// }));
+  origin:  'https://student-feedbacker-frontend.vercel.app',
+  methods: 'GET,POST',
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 const auth = require("./Routers/Auth")
 
